@@ -6,3 +6,6 @@ build
 
 # IntelliJ
 .idea
+
+# Ignore bin folder. Assuming it's created by IntelliJ and not Gradle
+bin
