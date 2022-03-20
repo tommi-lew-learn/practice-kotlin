@@ -6,7 +6,7 @@ class SevenUp {
     fun play(startingNumber: Int = 0, lastNumber: Int = 100): SevenUpResult {
         val size = lastNumber - startingNumber + 1
         val numbers = List(size) { i -> startingNumber + i }.toMutableList()
-        var upOrDown = List(size) { false }.toMutableList()
+        val upOrDown = List(size) { false }.toMutableList()
 
 
         for ((index, i) in (startingNumber..lastNumber).withIndex()) {
@@ -22,7 +22,7 @@ class SevenUp {
     }
 
     fun containsSeven(number: Int): Boolean {
-        var numberAsString = number.toString()
+        val numberAsString = number.toString()
         return numberAsString.indexOf("7") > -1
     }
 }
