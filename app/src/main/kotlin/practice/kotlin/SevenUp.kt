@@ -9,9 +9,9 @@ class SevenUp {
         val upOrDown = List(size) { false }.toMutableList()
 
 
-        for ((index, i) in (startingNumber..lastNumber).withIndex()) {
-            numbers[index] = i
-            upOrDown[index] = divisibleBySeven(i) || containsSeven(i)
+        for ((i, num) in (startingNumber..lastNumber).withIndex()) {
+            numbers[i] = num
+            upOrDown[i] = divisibleBySeven(num) || containsSeven(num)
         }
 
         return SevenUpResult(numbers, upOrDown)
