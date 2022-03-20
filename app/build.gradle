@@ -36,6 +36,13 @@ dependencies {
     testImplementation 'org.jetbrains.kotlin:kotlin-test-junit'
 }
 
+test {
+    testLogging {
+        events "failed"
+        exceptionFormat "full"
+    }
+}
+
 application {
     // Define the main class for the application.
     mainClass = 'practice.kotlin.AppKt'
