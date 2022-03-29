@@ -1,5 +1,6 @@
 package practice.kotlin
 
+import org.junit.jupiter.api.Nested
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
@@ -16,35 +17,41 @@ class SevenUpTest {
         assertEquals(upOrDown, listOf(true, false, false, true))
     }
 
-    @Test
-    fun returnsTrueWhenNumberIsDivisibleBySeven() {
-        var classUnderTest = SevenUp()
-        var result = classUnderTest.divisibleBySeven(7)
+    @Nested
+    inner class DivisibleBySeven {
+        @Test
+        fun returnsTrueWhenNumberIsDivisibleBySeven() {
+            var classUnderTest = SevenUp()
+            var result = classUnderTest.divisibleBySeven(7)
 
-        assert(result)
+            assert(result)
+        }
+
+        @Test
+        fun returnsFalseWhenNumberIsNotDivisibleBySeven() {
+            var classUnderTest = SevenUp()
+            var result = classUnderTest.divisibleBySeven(6)
+
+            assert(!result)
+        }
     }
 
-    @Test
-    fun returnsFalseWhenNumberIsNotDivisibleBySeven() {
-        var classUnderTest = SevenUp()
-        var result = classUnderTest.divisibleBySeven(6)
+    @Nested
+    inner class ContainsSeven {
+        @Test
+        fun returnsTrueWhenNumberContainsSeven() {
+            var classUnderTest = SevenUp()
+            var result = classUnderTest.containsSeven(7)
 
-        assert(!result)
-    }
+            assert(result)
+        }
 
-    @Test
-    fun returnsTrueWhenNumberContainsSeven() {
-        var classUnderTest = SevenUp()
-        var result = classUnderTest.containsSeven(7)
+        @Test
+        fun returnsFalseWhenNumberDoesNotContainSeven() {
+            var classUnderTest = SevenUp()
+            var result = classUnderTest.containsSeven(6)
 
-        assert(result)
-    }
-
-    @Test
-    fun returnsFalseWhenNumberDoesNotContainSeven() {
-        var classUnderTest = SevenUp()
-        var result = classUnderTest.containsSeven(6)
-
-        assert(!result)
+            assert(!result)
+        }
     }
 }
