@@ -1,5 +1,6 @@
 package practice.kotlin
 
+import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Nested
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -18,40 +19,60 @@ class SevenUpTest {
     }
 
     @Nested
+    @DisplayName("divisibleBySeven")
     inner class DivisibleBySeven {
-        @Test
-        fun returnsTrueWhenNumberIsDivisibleBySeven() {
-            var classUnderTest = SevenUp()
-            var result = classUnderTest.divisibleBySeven(7)
 
-            assert(result)
+        @Nested
+        @DisplayName("when number is divisible by seven")
+        inner class WhenNumberDivisibleBySeven {
+            @Test
+            fun `returns true`() {
+                var classUnderTest = SevenUp()
+                var result = classUnderTest.divisibleBySeven(7)
+
+                assert(result)
+            }
         }
 
-        @Test
-        fun returnsFalseWhenNumberIsNotDivisibleBySeven() {
-            var classUnderTest = SevenUp()
-            var result = classUnderTest.divisibleBySeven(6)
+        @Nested
+        @DisplayName("when number is not divisible by seven")
+        inner class WhenNumberNotDivisibleBySeven {
+            @Test
+            fun `returns false`() {
+                var classUnderTest = SevenUp()
+                var result = classUnderTest.divisibleBySeven(6)
 
-            assert(!result)
+                assert(!result)
+            }
         }
     }
 
     @Nested
+    @DisplayName("containsSeven")
     inner class ContainsSeven {
-        @Test
-        fun returnsTrueWhenNumberContainsSeven() {
-            var classUnderTest = SevenUp()
-            var result = classUnderTest.containsSeven(7)
 
-            assert(result)
+        @Nested
+        @DisplayName("when number contains seven")
+        inner class WhenNumberContainsSeven {
+            @Test
+            fun `returns true`() {
+                var classUnderTest = SevenUp()
+                var result = classUnderTest.containsSeven(7)
+
+                assert(result)
+            }
         }
 
-        @Test
-        fun returnsFalseWhenNumberDoesNotContainSeven() {
-            var classUnderTest = SevenUp()
-            var result = classUnderTest.containsSeven(6)
+        @Nested
+        @DisplayName("when number does not contain seven")
+        inner class WhenNumberDoesNotContainSeven {
+            @Test
+            fun `returns false`() {
+                var classUnderTest = SevenUp()
+                var result = classUnderTest.containsSeven(6)
 
-            assert(!result)
+                assert(!result)
+            }
         }
     }
 }
