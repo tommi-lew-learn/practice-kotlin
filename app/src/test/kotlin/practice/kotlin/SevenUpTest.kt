@@ -1,10 +1,10 @@
 package practice.kotlin
 
+import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Nested
 import kotlin.test.Test
-import kotlin.test.assertEquals
 
 
 class SevenUpTest {
@@ -20,15 +20,15 @@ class SevenUpTest {
     inner class Play {
 
         @Test
-        fun `returns SevenUpResult data class`() {
+        fun `returns a sorted map of results`() {
             sevenUp = SevenUp(14, 17)
             var sevenUpResult = sevenUp.play()
 
-            val numbers = sevenUpResult.numbers
-            val upOrDown = sevenUpResult.upOrDown
+            val numbers = sevenUpResult.keys
+            val upOrDown = sevenUpResult.values
 
-            assertEquals(numbers, listOf(14, 15, 16, 17))
-            assertEquals(upOrDown, listOf(true, false, false, true))
+            assertEquals(setOf(14, 15, 16, 17), numbers)
+            assertEquals(listOf(true, false, false, true), upOrDown.toList())
         }
     }
 
