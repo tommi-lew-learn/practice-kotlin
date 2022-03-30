@@ -6,20 +6,26 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 
 class SevenUpTest {
-    @Test
-    fun whenContainsNumbersThatAreDivisibleBySevenAndContainsSeven() {
-        var classUnderTest = SevenUp()
-        var sevenUpResult = classUnderTest.play(14, 17)
+    @Nested
+    @DisplayName("play()")
+    inner class Play {
 
-        val numbers = sevenUpResult.numbers
-        val upOrDown = sevenUpResult.upOrDown
+        @Test
+        fun `returns SevenUpResult data class`() {
+            var classUnderTest = SevenUp()
+            var sevenUpResult = classUnderTest.play(14, 17)
 
-        assertEquals(numbers, listOf(14, 15, 16, 17))
-        assertEquals(upOrDown, listOf(true, false, false, true))
+            val numbers = sevenUpResult.numbers
+            val upOrDown = sevenUpResult.upOrDown
+
+            assertEquals(numbers, listOf(14, 15, 16, 17))
+            assertEquals(upOrDown, listOf(true, false, false, true))
+        }
     }
 
+
     @Nested
-    @DisplayName("divisibleBySeven")
+    @DisplayName("divisibleBySeven()")
     inner class DivisibleBySeven {
 
         @Nested
@@ -48,7 +54,7 @@ class SevenUpTest {
     }
 
     @Nested
-    @DisplayName("containsSeven")
+    @DisplayName("containsSeven()")
     inner class ContainsSeven {
 
         @Nested
