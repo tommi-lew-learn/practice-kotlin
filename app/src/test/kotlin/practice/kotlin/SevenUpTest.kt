@@ -1,19 +1,27 @@
 package practice.kotlin
 
+import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Nested
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
+
 class SevenUpTest {
+    lateinit var sevenUp: SevenUp
+
+    @BeforeEach
+    fun initEach() {
+        sevenUp = SevenUp()
+    }
+
     @Nested
     @DisplayName("play()")
     inner class Play {
 
         @Test
         fun `returns SevenUpResult data class`() {
-            var classUnderTest = SevenUp()
-            var sevenUpResult = classUnderTest.play(14, 17)
+            var sevenUpResult = sevenUp.play(14, 17)
 
             val numbers = sevenUpResult.numbers
             val upOrDown = sevenUpResult.upOrDown
@@ -33,8 +41,7 @@ class SevenUpTest {
         inner class WhenNumberDivisibleBySeven {
             @Test
             fun `returns true`() {
-                var classUnderTest = SevenUp()
-                var result = classUnderTest.divisibleBySeven(7)
+                var result = sevenUp.divisibleBySeven(7)
 
                 assert(result)
             }
@@ -45,8 +52,7 @@ class SevenUpTest {
         inner class WhenNumberNotDivisibleBySeven {
             @Test
             fun `returns false`() {
-                var classUnderTest = SevenUp()
-                var result = classUnderTest.divisibleBySeven(6)
+                var result = sevenUp.divisibleBySeven(6)
 
                 assert(!result)
             }
@@ -62,8 +68,7 @@ class SevenUpTest {
         inner class WhenNumberContainsSeven {
             @Test
             fun `returns true`() {
-                var classUnderTest = SevenUp()
-                var result = classUnderTest.containsSeven(7)
+                var result = sevenUp.containsSeven(7)
 
                 assert(result)
             }
@@ -74,8 +79,7 @@ class SevenUpTest {
         inner class WhenNumberDoesNotContainSeven {
             @Test
             fun `returns false`() {
-                var classUnderTest = SevenUp()
-                var result = classUnderTest.containsSeven(6)
+                var result = sevenUp.containsSeven(6)
 
                 assert(!result)
             }
