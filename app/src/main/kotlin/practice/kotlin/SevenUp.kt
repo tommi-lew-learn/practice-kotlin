@@ -2,8 +2,12 @@ package practice.kotlin
 
 data class SevenUpResult(var numbers: List<Int>, var upOrDown: List<Boolean>)
 
-class SevenUp {
-    fun play(startingNumber: Int = 0, lastNumber: Int = 100): SevenUpResult {
+class SevenUp(
+    private val startingNumber: Int = 0,
+    private val lastNumber: Int = 100
+) {
+
+    fun play(): SevenUpResult {
         val size = lastNumber - startingNumber + 1
         val numbers = List(size) { i -> startingNumber + i }.toMutableList()
         val upOrDown = List(size) { false }.toMutableList()

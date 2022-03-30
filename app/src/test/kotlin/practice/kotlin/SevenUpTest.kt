@@ -21,7 +21,8 @@ class SevenUpTest {
 
         @Test
         fun `returns SevenUpResult data class`() {
-            var sevenUpResult = sevenUp.play(14, 17)
+            sevenUp = SevenUp(14, 17)
+            var sevenUpResult = sevenUp.play()
 
             val numbers = sevenUpResult.numbers
             val upOrDown = sevenUpResult.upOrDown
