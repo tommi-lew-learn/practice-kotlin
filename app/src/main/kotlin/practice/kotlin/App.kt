@@ -36,9 +36,7 @@ class App {
 
                 val result = SevenUp(startingNumber, endingNumber).play()
                 printResult(result)
-            }
-
-            if (menuInput.equals("Q", true)) {
+            } else if (menuInput.equals("Q", true)) {
                 println(EXIT_MESSAGE)
                 break
             }
