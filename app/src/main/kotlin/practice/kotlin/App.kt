@@ -1,7 +1,6 @@
 /*
  * Deprioritized requirements:
  * - Validation and error messages for invalid inputs
- * - "Welcome back to main menu"
  *
  */
 package practice.kotlin
