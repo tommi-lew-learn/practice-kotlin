@@ -1,7 +1,7 @@
 /*
  * Deprioritized requirements:
  * - Validation and error messages for invalid inputs
- *
+ * - Unit tests for App
  */
 package practice.kotlin
 
