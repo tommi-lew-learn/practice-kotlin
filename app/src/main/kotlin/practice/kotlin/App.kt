@@ -2,7 +2,6 @@
  * Deprioritized requirements:
  * - Validation and error messages for invalid inputs
  * - "Welcome back to main menu"
- * - Case insensitive
  *
  */
 package practice.kotlin
@@ -31,7 +30,7 @@ class App {
 
             val menuInput = getUserStringInput()
 
-            if (menuInput == "P") {
+            if (menuInput.equals("P", true)) {
                 val startingNumber = getUserIntInput(REQUEST_STARTING_NUMBER_MESSAGE)
                 val endingNumber = getUserIntInput(REQUEST_ENDING_NUMBER_MESSAGE)
 
@@ -39,7 +38,7 @@ class App {
                 printResult(result)
             }
 
-            if (menuInput == "Q") {
+            if (menuInput.equals("Q", true)) {
                 println(EXIT_MESSAGE)
                 break
             }
