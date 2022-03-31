@@ -2,7 +2,7 @@
  * Deprioritized requirements:
  * - Validation and error messages for invalid inputs
  * - "Welcome back to main menu"
- * - Ignore case
+ * - Case insensitive
  *
  */
 package practice.kotlin
@@ -21,45 +21,64 @@ class App {
                 Q - Exit
             """.trimIndent()
     }
+
+    fun call() {
+        println(WELCOME_MESSAGE)
+        println()
+
+        while (true) {
+            println(MENU)
+
+            val menuInput = getUserStringInput()
+
+            if (menuInput == "P") {
+                val startingNumber = getUserIntInput(REQUEST_STARTING_NUMBER_MESSAGE)
+                val endingNumber = getUserIntInput(REQUEST_ENDING_NUMBER_MESSAGE)
+
+                val result = SevenUp(startingNumber, endingNumber).play()
+                printResult(result)
+            }
+
+            if (menuInput == "Q") {
+                println(EXIT_MESSAGE)
+                break
+            }
+        }
+    }
+
+    private fun getUserStringInput(message: String = ""): String {
+        println(message)
+
+        print("> ")
+        val input = readLine()!!.trim()
+        println()
+
+        return input
+    }
+
+    private fun getUserIntInput(message: String): Int {
+        println(message)
+
+        print("> ")
+        val input = readLine()!!.trim().toInt()
+        println()
+
+        return input
+    }
+
+    private fun printResult(result: Map<Int, Boolean>) {
+        val resultFormatTemplate = "%-5s\t%s"
+
+        println(resultFormatTemplate.format("Number", "Seven Up?"))
+
+        for (entry in result.entries.iterator()) {
+            println(resultFormatTemplate.format(entry.key, entry.value))
+        }
+
+        println()
+    }
 }
 
 fun main() {
-    println(App.WELCOME_MESSAGE)
-    println()
-
-    while (true) {
-        println(App.MENU)
-        println()
-
-        print("> ")
-        val menuInput = readLine()!!.trim()
-        println()
-
-        if (menuInput == "P") {
-            println(App.REQUEST_STARTING_NUMBER_MESSAGE)
-
-            print("> ")
-            val startingNumber = readLine()!!.trim().toInt()
-            println()
-
-            println(App.REQUEST_ENDING_NUMBER_MESSAGE)
-            print("> ")
-            val endingNumber = readLine()!!.trim().toInt()
-            println()
-
-            val result = SevenUp(startingNumber, endingNumber).play()
-
-            val resultFormatTemplate = "%-5s\t%s"
-            println(resultFormatTemplate.format("Number", "Seven Up?"))
-            for (entry in result.entries.iterator()) {
-                println(resultFormatTemplate.format(entry.key, entry.value))
-            }
-            println()
-        }
-
-        if (menuInput == "Q") {
-            println(App.EXIT_MESSAGE)
-            break
-        }
-    }
+    App().call()
 }
